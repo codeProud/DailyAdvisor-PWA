@@ -16,6 +16,24 @@ export const registerUserRejected = payload => ({
     payload,
 });
 
+export const REGISTER_USER_CONFIRM = 'REGISTER_USER_CONFIRM';
+export const registerUserConfirm = payload => ({
+    type: REGISTER_USER_CONFIRM,
+    payload,
+});
+
+export const REGISTER_USER_CONFIRM_FULFILLED = 'REGISTER_USER_CONFIRM_FULFILLED';
+export const registerUserConfirmFulfilled = payload => ({
+    type: REGISTER_USER_CONFIRM_FULFILLED,
+    payload,
+});
+
+export const REGISTER_USER_CONFIRM_REJECTED = 'REGISTER_USER_CONFIRM_REJECTED';
+export const registerUserConfirmRejected = payload => ({
+    type: REGISTER_USER_CONFIRM_REJECTED,
+    payload,
+});
+
 export const LOGIN_USER = 'LOGIN_USER';
 export const loginUser = payload => ({
     type: LOGIN_USER,

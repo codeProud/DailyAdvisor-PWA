@@ -1,6 +1,7 @@
 import { http } from 'utils/http';
 
 const registerUser = user => http.post('/registration', user);
+const registerUserConfirm = token => http.post('/registrationConfirm', { token });
 const loginUser = user => http.post('/login', user);
 const getUserProfile = () => http.get('/getUserProfile');
 const getCsrf = () => http.get('/csrf');
@@ -10,4 +11,5 @@ export const authApi = {
     registerUser,
     loginUser,
     getUserProfile,
+    registerUserConfirm,
 };

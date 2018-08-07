@@ -1,10 +1,12 @@
 import React from 'react';
-import { withFormik, Field } from 'formik';
+import { Form, withFormik, Field } from 'formik';
 import * as yup from 'yup';
 import { omit as _omit } from 'lodash';
 
+import Button from 'components/Button';
+
 const InnerForm = ({ values, errors, touched, handleSubmit }) => (
-    <form onSubmit={handleSubmit}>
+    <Form>
         <div>
             name:
             <Field type="text" name="name" />
@@ -40,8 +42,10 @@ const InnerForm = ({ values, errors, touched, handleSubmit }) => (
             <Field type="text" name="userType" value={values.userType} />
             {touched.userType && errors.userType && errors.userType}
         </div>
-        <button type="submit">Submit</button>
-    </form>
+        <Button type="submit" value="Zarejestruj" />
+        <br />
+        <Button value="Wróć do logowania" url={`/`} />
+    </Form>
 );
 
 const schema = yup.object().shape({
@@ -77,13 +81,13 @@ const schema = yup.object().shape({
 
 export const RegisterForm = withFormik({
     mapPropsToValues: () => ({
-        name: 'assd',
-        lastName: 'asdads',
-        city: 'asdads',
-        email: 'asd@o2.pl',
-        password: '12345678',
-        repeatPassword: '12345678',
-        userType: 'coach',
+        name: '',
+        lastName: '',
+        city: '',
+        email: '',
+        password: '',
+        repeatPassword: '',
+        userType: '',
     }),
     validationSchema: schema,
     handleSubmit: (values, { props }) => {

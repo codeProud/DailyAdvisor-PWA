@@ -10,6 +10,7 @@ import { getCookie } from 'utils/cookie';
 import Image from 'components/Image';
 import { LoginForm } from './components/LoginForm';
 import SocialLogin from 'components/SocialLogin';
+import Button from 'components/Button';
 
 import * as S from './styled';
 
@@ -52,6 +53,10 @@ class Login extends React.Component {
                         {this.state.isLoginFormDisplayed ? (
                             <LoginForm onSubmit={this.props.loginUser} />
                         ) : null}
+
+                        <div style={{ color: 'white' }}>lub</div>
+
+                        <Button value="Zarejestruj" url={`/register`} />
                     </S.LoginBox>
                 </S.LoginContainer>
             </S.Container>

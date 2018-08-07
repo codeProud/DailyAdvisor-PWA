@@ -9,7 +9,7 @@ const Button = ({ url, content, onClick, value, type }) => (
             <S.Button type={type}>{value}</S.Button>
         ) : url ? (
             <NavLink to={url}>
-                <S.Button>{content}</S.Button>
+                <S.Button>{value}</S.Button>
             </NavLink>
         ) : (
             <S.Button onClick={onClick}>{content}</S.Button>

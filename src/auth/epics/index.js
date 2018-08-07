@@ -21,6 +21,19 @@ export function authEpicFactory() {
             }),
         );
 
+    const registerUserConfirm = action$ =>
+        action$.pipe(
+            ofType(actions.REGISTER_USER_CONFIRM),
+            switchMap(action =>
+                authApi
+                    .registerUserConfirm(action.payload)
+                    .catch(actions.registerUserConfirmRejected),
+            ),
+            map(res => {
+                return actions.registerUserConfirmFulfilled();
+            }),
+        );
+
     const loginUserEpic = actions$ =>
         actions$.pipe(
             ofType(actions.LOGIN_USER),
@@ -54,6 +67,7 @@ export function authEpicFactory() {
             ofType(actions.LOGOUT_USER),
             map(action => {
                 deleteCookie('_secu');
+
                 return actions.logoutUserFulfilled();
             }),
         );
@@ -64,5 +78,6 @@ export function authEpicFactory() {
         registerUserEpic,
         loginUserEpic,
         logoutUserEpic,
+        registerUserConfirm,
     );
 }
