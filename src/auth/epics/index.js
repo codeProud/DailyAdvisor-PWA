@@ -4,6 +4,8 @@ import { switchMap, map } from 'rxjs/operators';
 import * as actions from '../actions';
 import { authApi } from '../api';
 
+import { deleteCookie } from 'utils/cookie';
+
 export function authEpicFactory() {
     const registerUserEpic = action$ =>
         action$.pipe(
@@ -47,5 +49,20 @@ export function authEpicFactory() {
             ),
         );
 
-    return combineEpics(csrfEpic, csrfFullfilledEpic, registerUserEpic, loginUserEpic);
+    const logoutUserEpic = action$ =>
+        action$.pipe(
+            ofType(actions.LOGOUT_USER),
+            map(action => {
+                deleteCookie('_secu');
+                return actions.logoutUserFulfilled();
+            }),
+        );
+
+    return combineEpics(
+        csrfEpic,
+        csrfFullfilledEpic,
+        registerUserEpic,
+        loginUserEpic,
+        logoutUserEpic,
+    );
 }

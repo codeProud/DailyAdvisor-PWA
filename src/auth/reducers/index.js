@@ -11,6 +11,13 @@ export function authReducer(state = initialState, action) {
                 ...state,
                 isLoggedIn: true,
             };
+
+        case actions.LOGOUT_USER_FULFILLED:
+            return {
+                ...state,
+                isLoggedIn: false,
+            };
+
         default:
             return state;
     }

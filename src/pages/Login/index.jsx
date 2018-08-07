@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import unknown from '../../assets/unknown.png';
 import { loginUser } from '../../auth/actions';
 import { isLoggedInSelector } from '../../auth/selectors';
+import { getCookie } from 'utils/cookie';
 
 import Image from 'components/Image';
 import { LoginForm } from './components/LoginForm';
@@ -13,9 +14,16 @@ import SocialLogin from 'components/SocialLogin';
 import * as S from './styled';
 
 class Login extends React.Component {
-    state = {
-        isLoginFormDisplayed: false,
-    };
+    constructor(props) {
+        super(props);
+
+        const isLoggedIn = getCookie('_secu');
+
+        this.state = {
+            isLoginFormDisplayed: false,
+            isLoggedIn,
+        };
+    }
 
     toggleLogin = () => {
         this.setState({
@@ -24,7 +32,7 @@ class Login extends React.Component {
     };
 
     render() {
-        if (this.props.isLoggedIn === true) {
+        if (this.props.isLoggedIn === true || this.state.isLoggedIn) {
             return <Redirect to="/main" />;
         }
 

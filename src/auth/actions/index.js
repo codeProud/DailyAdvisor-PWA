@@ -51,3 +51,13 @@ export const getCsrfRejected = payload => ({
     type: GET_CSRF_REJECTED,
     payload,
 });
+
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const logoutUser = () => ({
+    type: LOGOUT_USER,
+});
+
+export const LOGOUT_USER_FULFILLED = 'LOGOUT_USER_FULFILLED';
+export const logoutUserFulfilled = () => ({
+    type: LOGOUT_USER_FULFILLED,
+});
