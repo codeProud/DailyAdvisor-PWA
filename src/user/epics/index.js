@@ -3,8 +3,9 @@ import { switchMap } from 'rxjs/operators';
 
 import * as actions from '../actions';
 
-// uncomment this when backend api will be ok, now using mocked data for profile
 // import { userApi } from '../api';
+
+// remove mocked one when backend will work properly on new microservices
 import { userApi } from '../mockedApi';
 
 import { getCookie } from 'utils/cookie';
@@ -41,15 +42,7 @@ export function userDataEpicFactory() {
             switchMap(action =>
                 userApi
                     .getOwnProfile()
-                    .then(data => {
-                        console.dir(data);
-
-                        const ciastko = getCookie('_secu');
-
-                        console.log(ciastko);
-
-                        return actions.getUserDataFulfilled(data);
-                    })
+                    .then(data => actions.getUserDataFulfilled(data))
                     .catch(actions.getUserDataRejected),
             ),
         );

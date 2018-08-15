@@ -10,7 +10,7 @@ export function userReducer(state = initialState, action) {
             console.log(action.payload);
             return {
                 ...state,
-                user: action.payload,
+                user: action.payload.data,
             };
         default:
             return state;
