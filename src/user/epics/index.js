@@ -11,7 +11,7 @@ export function userDataEpicFactory() {
             ofType(actions.GET_USER_DATA),
             switchMap(action =>
                 userApi
-                    .getUserProfile()
+                    .getOwnProfile()
                     .then(data => {
                         console.dir(data);
 

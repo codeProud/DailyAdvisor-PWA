@@ -10,15 +10,20 @@ import * as S from './styled.js';
 const BottomNavigation = () => {
     return (
         <S.Container>
-            <ul>
+            <S.NavigationContainer>
                 {bottomNavItems.map(navItem => (
-                    <li key={navItem.id}>
+                    <S.Item key={navItem.id}>
                         <NavLink to={navItem.url}>
-                            <IconButton src={navItem.icon} alt={navItem.payload.alt} width="50px" />
+                            <IconButton
+                                src={navItem.icon}
+                                alt={navItem.payload.alt}
+                                height="50px"
+                                width="50px"
+                            />
                         </NavLink>
-                    </li>
+                    </S.Item>
                 ))}
-            </ul>
+            </S.NavigationContainer>
         </S.Container>
     );
 };

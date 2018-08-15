@@ -2,18 +2,15 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     position: fixed;
-    width: 100%;
     bottom: 0;
-    left: 0;
-    border-top: 3px solid #eaeaea;
 `;
 
 export const NavigationContainer = styled.ul`
-    display: flex;
-    justify-content: space-between;
     list-style: none;
-    padding: 5px;
+    padding: 0;
     margin: 0;
 `;
 
-export const Item = styled.li``;
+export const Item = styled.li`
+    display: inline-block;
+`;

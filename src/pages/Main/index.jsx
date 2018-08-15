@@ -1,11 +1,14 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { Route, Switch } from 'react-router';
 
 import { getUserData } from '../../user/actions';
 
+import Header from 'components/Header';
+import BottomNavigation from 'components/BottomNavigation';
+
 import Profile from 'pages/Profile';
+import Calendar from 'pages/Calendar';
 
 class Main extends React.Component {
     componentDidMount() {
@@ -15,11 +18,12 @@ class Main extends React.Component {
     render() {
         return (
             <Fragment>
-                <div>Main</div>
-                <NavLink to={'../'}>dupa</NavLink>
+                <Header />
                 <Switch>
                     <Route path={`${this.props.match.path}/profile`} component={Profile} />
+                    <Route path={`${this.props.match.path}/calendar`} component={Calendar} />
                 </Switch>
+                <BottomNavigation />
             </Fragment>
         );
     }
