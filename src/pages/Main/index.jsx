@@ -7,8 +7,10 @@ import { getUserData } from '../../user/actions';
 import Header from 'components/Header';
 import BottomNavigation from 'components/BottomNavigation';
 
+import Dashboard from 'pages/Dashboard';
 import Profile from 'pages/Profile';
 import Calendar from 'pages/Calendar';
+import NotFound from 'pages/NotFound';
 
 class Main extends React.Component {
     componentDidMount() {
@@ -20,8 +22,10 @@ class Main extends React.Component {
             <Fragment>
                 <Header />
                 <Switch>
+                    <Route exact path={`${this.props.match.path}`} component={Dashboard} />
                     <Route path={`${this.props.match.path}/profile`} component={Profile} />
                     <Route path={`${this.props.match.path}/calendar`} component={Calendar} />
+                    <Route component={NotFound} />
                 </Switch>
                 <BottomNavigation />
             </Fragment>
