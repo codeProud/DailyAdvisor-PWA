@@ -8,8 +8,6 @@ import * as actions from '../actions';
 // remove mocked one when backend will work properly on new microservices
 import { userApi } from '../mockedApi';
 
-import { getCookie } from 'utils/cookie';
-
 // uncomment it when requesting user from backend will fully work
 // export function userDataEpicFactory() {
 //     const getUserDataEpic = action$ =>

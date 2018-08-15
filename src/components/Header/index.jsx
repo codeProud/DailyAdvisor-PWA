@@ -13,10 +13,12 @@ import Image from 'components/Image';
 import * as S from './styled.js';
 
 const Header = props => {
+    const { pathname } = props.location;
+    const { goBack } = props.history;
+
     return (
         <S.Container>
-            {props.location.pathname === '/main' ||
-            props.location.pathname === '/main/dashboard' ? (
+            {pathname === '/main' || pathname === '/main/dashboard' ? (
                 <NavLink to={'/main/profile'}>
                     <Image
                         src={avatar}
@@ -26,12 +28,7 @@ const Header = props => {
                     />
                 </NavLink>
             ) : (
-                <IconButton
-                    src={arrowLeft}
-                    alt="Go to calendar"
-                    height="50px"
-                    onClick={props.history.goBack}
-                />
+                <IconButton src={arrowLeft} alt="Go to calendar" height="50px" onClick={goBack} />
             )}
             <S.MainHeading>daily advisor</S.MainHeading>
             <NavLink to={'/main/calendar'}>
