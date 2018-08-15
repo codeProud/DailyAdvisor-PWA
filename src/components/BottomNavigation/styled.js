@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     position: fixed;
+    background-color: white;
     width: 100%;
     bottom: 0;
     left: 0;
