@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
 export const isLoggedInSelector = createSelector(
-    state => state.authReducer.isLoggedIn,
+    state => state.auth.isLoggedIn,
     isLoggedIn => isLoggedIn,
 );

@@ -4,7 +4,7 @@ const initialState = {
     isLoggedIn: null,
 };
 
-export function authReducer(state = initialState, action) {
+export function auth(state = initialState, action) {
     switch (action.type) {
         case actions.LOGIN_USER_FULFILLED:
             return {

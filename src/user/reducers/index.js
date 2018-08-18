@@ -1,16 +1,14 @@
 import * as actions from '../actions';
 
-const initialState = {
-    user: null,
-};
+const initialState = {};
 
-export function userReducer(state = initialState, action) {
+export function user(state = initialState, action) {
     switch (action.type) {
         case actions.GET_USER_DATA_FULFILLED:
             console.log(action.payload);
             return {
                 ...state,
-                user: action.payload.data,
+                ...action.payload.data,
             };
         default:
             return state;
