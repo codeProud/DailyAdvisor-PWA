@@ -6,6 +6,6 @@ export const Container = styled.div`
     background-image: ${props => (props.background ? `url(${props.background}` : 'green')});
     background-position: center right;
     background-size: cover;
-    width: ${props => (props.width ? props.width : null)};
-    height: ${props => (props.height ? props.height : null)};
+    width: ${props => props.width || '300px'};
+    height: ${props => props.height || '120px'};
 `;

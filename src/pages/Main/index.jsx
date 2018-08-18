@@ -18,13 +18,15 @@ class Main extends React.Component {
     }
 
     render() {
+        const { path } = this.props.match;
+
         return (
             <Fragment>
                 <Header />
                 <Switch>
-                    <Route exact path={`${this.props.match.path}`} component={Dashboard} />
-                    <Route path={`${this.props.match.path}/profile`} component={Profile} />
-                    <Route path={`${this.props.match.path}/calendar`} component={Calendar} />
+                    <Route exact path={`${path}`} component={Dashboard} />
+                    <Route path={`${path}/profile`} component={Profile} />
+                    <Route path={`${path}/calendar`} component={Calendar} />
                     <Route component={NotFound} />
                 </Switch>
                 <BottomNavigation />
