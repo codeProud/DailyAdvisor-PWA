@@ -5,8 +5,6 @@ import * as actions from '../actions';
 import { authApi } from '../api';
 import { history } from '../../store';
 
-// import { deleteCookie } from 'utils/cookie';
-
 export function authEpicFactory() {
     const registerUserEpic = action$ =>
         action$.pipe(

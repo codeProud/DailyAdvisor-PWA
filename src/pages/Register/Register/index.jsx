@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 import unknown from '../../../assets/unknown.png';
-import { isLoggedInSelector } from '../../../auth/selectors';
-import { getCookie } from 'utils/cookie';
 
 import Image from 'components/Image';
 
@@ -14,21 +11,7 @@ import { RegisterForm } from './RegisterForm';
 import { registerUser } from '../../../auth/actions';
 
 class Register extends React.Component {
-    constructor(props) {
-        super(props);
-
-        const isLoggedIn = getCookie('_secu');
-
-        this.state = {
-            isLoggedIn,
-        };
-    }
-
     render() {
-        if (this.props.isLoggedIn === true || this.state.isLoggedIn) {
-            return <Redirect to="/main" />;
-        }
-
         return (
             <S.Container>
                 <S.LoginContainer>
@@ -43,13 +26,7 @@ class Register extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        isLoggedIn: isLoggedInSelector(state),
-    };
-}
-
 export default connect(
-    mapStateToProps,
+    null,
     { registerUser },
 )(Register);

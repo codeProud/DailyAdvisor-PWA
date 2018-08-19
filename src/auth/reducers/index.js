@@ -1,19 +1,19 @@
 import * as actions from '../actions';
 
-const initialState = { isLoggedIn: false };
+const initialState = { authenticated: false };
 
 export function auth(state = initialState, action) {
     switch (action.type) {
         case actions.LOGIN_USER_FULFILLED:
             return {
                 ...state,
-                isLoggedIn: true,
+                authenticated: true,
             };
 
         case actions.LOGOUT_USER_FULFILLED:
             return {
                 ...state,
-                isLoggedIn: false,
+                authenticated: false,
             };
 
         default:

@@ -4,7 +4,6 @@ import { Route, Switch } from 'react-router';
 
 import { getUserData } from '../../user/actions';
 import { logoutUser } from '../../auth/actions';
-import { isLoggedInSelector } from '../../auth/selectors';
 
 import Header from 'components/Header';
 import BottomNavigation from 'components/BottomNavigation';
@@ -38,13 +37,7 @@ class Main extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        isLoggedIn: isLoggedInSelector(state),
-    };
-}
-
 export default connect(
-    mapStateToProps,
+    null,
     { getUserData, logoutUser },
 )(Main);
