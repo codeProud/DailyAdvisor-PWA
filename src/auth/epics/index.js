@@ -3,7 +3,6 @@ import { switchMap, map } from 'rxjs/operators';
 
 import * as actions from '../actions';
 import { authApi } from '../api';
-import { history } from '../../store';
 
 export function authEpicFactory() {
     const registerUserEpic = action$ =>
@@ -26,11 +25,9 @@ export function authEpicFactory() {
             switchMap(action =>
                 authApi
                     .registerUserConfirm(action.payload)
+                    .then(actions.registerUserConfirmFulfilled)
                     .catch(actions.registerUserConfirmRejected),
             ),
-            map(res => {
-                return actions.registerUserConfirmFulfilled();
-            }),
         );
 
     const loginUserEpic = actions$ =>
