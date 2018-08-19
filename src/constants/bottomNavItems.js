@@ -9,7 +9,7 @@ export const bottomNavItems = [
     {
         id: 0,
         name: 'dashboard',
-        url: '/main/dashboard',
+        url: '/main',
         icon: dashboard,
         payload: {
             alt: 'Dashboard',

@@ -1,18 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Route, Switch } from 'react-router';
-import { ConnectedRouter } from 'react-router-redux';
+import { Route, Switch, Router } from 'react-router-dom';
 
 import store, { history } from 'store';
 
-import ProtectedRoute from 'components/ProtectedRoute';
+import AuthenticatedRoutes from 'components/AuthenticatedRoutes';
+import NonAuthenticatedRoutes from 'components/NonAuthenticatedRoutes';
 
-import Login from 'pages/Login';
-import Register from 'pages/Register/Register';
-import AfterRegister from 'pages/Register/AfterRegister';
-import RegisterConfirm from 'pages/Register/RegisterConfirm';
-import About from 'pages/About';
 import Main from 'pages/Main';
 import NotFound from 'pages/NotFound';
 
@@ -22,20 +17,15 @@ const target = document.querySelector('#root');
 
 render(
     <Provider store={store}>
-        <ConnectedRouter history={history}>
+        <Router history={history}>
             <StyledMainApp>
                 <Switch>
-                    <Route exact path="/" component={Login} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/about" component={About} />
-                    <Route path="/register" component={Register} />
-                    <Route path="/afterRegister" component={AfterRegister} />
-                    <Route path="/registrationConfirm/:token" component={RegisterConfirm} />
-                    <ProtectedRoute path="/main" component={Main} />
+                    <AuthenticatedRoutes path="/main" component={Main} />
+                    <NonAuthenticatedRoutes path="/" />
                     <Route component={NotFound} />
                 </Switch>
             </StyledMainApp>
-        </ConnectedRouter>
+        </Router>
     </Provider>,
     target,
 );

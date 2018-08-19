@@ -17,12 +17,6 @@ import { userApi } from '../mockedApi';
 //                 userApi
 //                     .getOwnProfile()
 //                     .then(data => {
-//                         console.dir(data);
-
-//                         const ciastko = getCookie('_secu');
-
-//                         console.log(ciastko);
-
 //                         return actions.getUserDataFulfilled(data);
 //                     })
 //                     .catch(actions.getUserDataRejected),

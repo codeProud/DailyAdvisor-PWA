@@ -3,6 +3,7 @@ import { switchMap, map } from 'rxjs/operators';
 
 import * as actions from '../actions';
 import { authApi } from '../api';
+import { history } from '../../store';
 
 // import { deleteCookie } from 'utils/cookie';
 
@@ -58,7 +59,8 @@ export function authEpicFactory() {
                 authApi
                     .loginUser(action.payload)
                     .then(() => {
-                        localStorage.setItem('isLoggedIn', true);
+                        localStorage.setItem('authenticated', 'true');
+                        history.push('/');
                         return actions.loginUserFulfilled(action.payload);
                     })
                     .catch(actions.loginUserRejected),
@@ -72,7 +74,8 @@ export function authEpicFactory() {
                 authApi
                     .logoutUser()
                     .then(() => {
-                        localStorage.setItem('isLoggedIn', false);
+                        localStorage.removeItem('authenticated');
+                        history.push('/');
                         return actions.logoutUserFulfilled();
                     })
                     .catch(actions.logoutUserRejected),

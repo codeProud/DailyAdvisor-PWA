@@ -1,7 +1,5 @@
 export const getCookie = name => {
-    console.log('biore ciacho');
     const value = `; ${document.cookie}`;
-    console.log(value);
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) {
         return parts

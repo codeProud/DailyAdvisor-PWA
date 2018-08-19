@@ -14,13 +14,9 @@ import Button from 'components/Button';
 import * as S from './styled';
 
 class Login extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isLoginFormDisplayed: false,
-        };
-    }
+    state = {
+        isLoginFormDisplayed: false,
+    };
 
     toggleLogin = () => {
         this.setState({
@@ -29,11 +25,6 @@ class Login extends React.Component {
     };
 
     render() {
-        // if (this.state.isLoggedIn === 'true' || this.props.isLoggedIn === true) {
-        // if (localStorage.getItem('isLoggedIn') === 'false') {
-        //     return <Redirect to="/main" />;
-        // }
-
         return (
             <S.Container>
                 <S.LoginContainer>
