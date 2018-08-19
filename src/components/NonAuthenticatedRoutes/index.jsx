@@ -22,8 +22,8 @@ const NonAuthenticatedRoutes = ({ component: Component, ...rest }) => (
                         <Route exact path="/login" component={Login} />
                         <Route path="/about" component={About} />
                         <Route path="/register" component={Register} />
-                        <Route path="/afterRegister" component={AfterRegister} />
-                        <Route path="/registrationConfirm/:token" component={RegisterConfirm} />
+                        <Route path="/after-register" component={AfterRegister} />
+                        <Route path="/registration-confirm/:token" component={RegisterConfirm} />
                         <Redirect from="/*" to="/login" />
                     </Switch>
                 </Fragment>

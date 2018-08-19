@@ -11,9 +11,7 @@ export function user(state = initialState, action) {
                 ...action.payload.data,
             };
         case authActions.LOGOUT_USER_FULFILLED:
-            return {
-                ...initialState,
-            };
+            return initialState;
         default:
             return state;
     }
