@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-const Dashborad = () => <div>Dashborad</div>;
+const Dashboard = () => {
+    return (
+        <Fragment>
+            <h1>Dashboard</h1>
+        </Fragment>
+    );
+};
 
-export default Dashborad;
+export default Dashboard;

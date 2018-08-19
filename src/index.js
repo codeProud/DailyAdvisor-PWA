@@ -6,6 +6,8 @@ import { ConnectedRouter } from 'react-router-redux';
 
 import store, { history } from 'store';
 
+import ProtectedRoute from 'components/ProtectedRoute';
+
 import Login from 'pages/Login';
 import Register from 'pages/Register/Register';
 import AfterRegister from 'pages/Register/AfterRegister';
@@ -29,7 +31,7 @@ render(
                     <Route path="/register" component={Register} />
                     <Route path="/afterRegister" component={AfterRegister} />
                     <Route path="/registrationConfirm/:token" component={RegisterConfirm} />
-                    <Route path="/main" component={Main} />
+                    <ProtectedRoute path="/main" component={Main} />
                     <Route component={NotFound} />
                 </Switch>
             </StyledMainApp>

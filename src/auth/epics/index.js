@@ -4,7 +4,7 @@ import { switchMap, map } from 'rxjs/operators';
 import * as actions from '../actions';
 import { authApi } from '../api';
 
-import { deleteCookie } from 'utils/cookie';
+// import { deleteCookie } from 'utils/cookie';
 
 export function authEpicFactory() {
     const registerUserEpic = action$ =>
@@ -57,7 +57,10 @@ export function authEpicFactory() {
             switchMap(action =>
                 authApi
                     .loginUser(action.payload)
-                    .then(actions.loginUserFulfilled)
+                    .then(() => {
+                        localStorage.setItem('isLoggedIn', true);
+                        return actions.loginUserFulfilled(action.payload);
+                    })
                     .catch(actions.loginUserRejected),
             ),
         );
@@ -65,11 +68,15 @@ export function authEpicFactory() {
     const logoutUserEpic = action$ =>
         action$.pipe(
             ofType(actions.LOGOUT_USER),
-            map(action => {
-                deleteCookie('_secu');
-
-                return actions.logoutUserFulfilled();
-            }),
+            switchMap(action =>
+                authApi
+                    .logoutUser()
+                    .then(() => {
+                        localStorage.setItem('isLoggedIn', false);
+                        return actions.logoutUserFulfilled();
+                    })
+                    .catch(actions.logoutUserRejected),
+            ),
         );
 
     return combineEpics(

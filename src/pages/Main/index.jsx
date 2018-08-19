@@ -1,50 +1,38 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
 import { Route, Switch } from 'react-router';
 
 import { getUserData } from '../../user/actions';
 import { logoutUser } from '../../auth/actions';
 import { isLoggedInSelector } from '../../auth/selectors';
-import { getCookie } from 'utils/cookie';
+
+import Header from 'components/Header';
+import BottomNavigation from 'components/BottomNavigation';
 
 import Dashboard from 'pages/Dashboard';
 import Profile from 'pages/Profile';
+import Calendar from 'pages/Calendar';
+import NotFound from 'pages/NotFound';
 
 class Main extends React.Component {
-    constructor(props) {
-        super(props);
-
-        const isLoggedIn = getCookie('_secu');
-
-        this.state = {
-            isLoggedIn,
-        };
-    }
-
     componentDidMount() {
         this.props.getUserData();
     }
 
     render() {
-        if (!this.state.isLoggedIn && !this.props.isLoggedIn) {
-            return <Redirect to="/" />;
-        }
+        const { path } = this.props.match;
 
         return (
             <Fragment>
-                <div>
-                    <NavLink to={`${this.props.match.path}/dashboard`}>Dashboard</NavLink>
-                    <span> - </span>
-                    <NavLink to={`${this.props.match.path}/profile`}>Profile</NavLink>
-                    <button onClick={this.props.logoutUser}>Wyloguj</button>
-                </div>
-                <div>
-                    <Switch>
-                        <Route path={`${this.props.match.path}/dashboard`} component={Dashboard} />
-                        <Route path={`${this.props.match.path}/profile`} component={Profile} />
-                    </Switch>
-                </div>
+                <Header />
+                <button onClick={this.props.logoutUser}>Wyloguj</button>
+                <Switch>
+                    <Route exact path={`${path}`} component={Dashboard} />
+                    <Route path={`${path}/profile`} component={Profile} />
+                    <Route path={`${path}/calendar`} component={Calendar} />
+                    <Route component={NotFound} />
+                </Switch>
+                <BottomNavigation />
             </Fragment>
         );
     }

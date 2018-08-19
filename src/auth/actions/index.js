@@ -79,3 +79,8 @@ export const LOGOUT_USER_FULFILLED = 'LOGOUT_USER_FULFILLED';
 export const logoutUserFulfilled = () => ({
     type: LOGOUT_USER_FULFILLED,
 });
+
+export const LOGOUT_USER_REJECTED = 'LOGOUT_USER_REJECTED';
+export const logoutUserRejected = () => ({
+    type: LOGOUT_USER_REJECTED,
+});

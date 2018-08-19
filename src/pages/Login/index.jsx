@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 import unknown from '../../assets/unknown.png';
 import { loginUser } from '../../auth/actions';
 import { isLoggedInSelector } from '../../auth/selectors';
-import { getCookie } from 'utils/cookie';
 
 import Image from 'components/Image';
 import { LoginForm } from './components/LoginForm';
@@ -18,11 +17,8 @@ class Login extends React.Component {
     constructor(props) {
         super(props);
 
-        const isLoggedIn = getCookie('_secu');
-
         this.state = {
             isLoginFormDisplayed: false,
-            isLoggedIn,
         };
     }
 
@@ -33,9 +29,10 @@ class Login extends React.Component {
     };
 
     render() {
-        if (this.props.isLoggedIn === true || this.state.isLoggedIn) {
-            return <Redirect to="/main" />;
-        }
+        // if (this.state.isLoggedIn === 'true' || this.props.isLoggedIn === true) {
+        // if (localStorage.getItem('isLoggedIn') === 'false') {
+        //     return <Redirect to="/main" />;
+        // }
 
         return (
             <S.Container>

@@ -1,10 +1,8 @@
 import * as actions from '../actions';
 
-const initialState = {
-    isLoggedIn: null,
-};
+const initialState = { isLoggedIn: false };
 
-export function authReducer(state = initialState, action) {
+export function auth(state = initialState, action) {
     switch (action.type) {
         case actions.LOGIN_USER_FULFILLED:
             return {
