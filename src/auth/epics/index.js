@@ -56,11 +56,7 @@ export function authEpicFactory() {
             switchMap(action =>
                 authApi
                     .loginUser(action.payload)
-                    .then(() => {
-                        localStorage.setItem('authenticated', 'true');
-                        history.push('/');
-                        return actions.loginUserFulfilled(action.payload);
-                    })
+                    .then(actions.loginUserFulfilled)
                     .catch(actions.loginUserRejected),
             ),
         );
@@ -71,11 +67,7 @@ export function authEpicFactory() {
             switchMap(action =>
                 authApi
                     .logoutUser()
-                    .then(() => {
-                        localStorage.removeItem('authenticated');
-                        history.push('/');
-                        return actions.logoutUserFulfilled();
-                    })
+                    .then(actions.logoutUserFulfilled)
                     .catch(actions.logoutUserRejected),
             ),
         );
