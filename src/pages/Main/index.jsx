@@ -31,6 +31,7 @@ class Main extends React.Component {
         return (
             <Fragment>
                 <Header />
+                {this.props.settings.isTrainerTitleVisible ? 'Trainer' : null}
                 <button onClick={this.props.logoutUser}>Wyloguj</button>
 
                 <Switch>

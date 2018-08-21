@@ -1,9 +1,9 @@
 const settings = {
     coach: {
-        isFloatingSwitcherVisible: true,
+        isTrainerTitleVisible: true,
     },
     client: {
-        isFloatingSwitcherVisible: false,
+        isTrainerTitleVisible: false,
     },
 };
 
