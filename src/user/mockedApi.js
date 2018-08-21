@@ -1,6 +1,6 @@
 import { http } from 'utils/http';
 
-import * as responses from 'utils/mockedResponses/user';
+import * as res from 'utils/mockedResponses/user';
 
 const getUserProfile = userId => http.get(`/getUserProfile/${userId}`);
 // const getOwnProfile = () => http.get(`/getUserProfile`);
@@ -9,9 +9,20 @@ const getOwnProfile = () => {
     return new Promise((resolve, reject) => {
         const condition = true;
         if (condition) {
-            resolve(responses.getOwnProfile);
+            resolve(res.getOwnProfileSuccess);
         } else {
-            reject({ error: `Couldn't fetch user` });
+            reject(res.getOwnProfileFail);
+        }
+    });
+};
+
+const upgradeToCoach = () => {
+    return new Promise((resolve, reject) => {
+        const condition = true;
+        if (condition) {
+            resolve(res.upgradeToCoachSuccess);
+        } else {
+            reject(res.upgradeToCoachFail);
         }
     });
 };
@@ -19,4 +30,5 @@ const getOwnProfile = () => {
 export const userApi = {
     getUserProfile,
     getOwnProfile,
+    upgradeToCoach,
 };

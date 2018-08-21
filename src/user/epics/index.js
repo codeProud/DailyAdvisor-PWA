@@ -20,5 +20,17 @@ export function userDataEpicFactory() {
                     .catch(actions.getUserDataRejected),
             ),
         );
-    return combineEpics(getUserDataEpic);
+
+    const upgradeToCoachEpic = action$ =>
+        action$.pipe(
+            ofType(actions.USER_UPGRADE_TO_COACH),
+            switchMap(action =>
+                userApi
+                    .upgradeToCoach()
+                    .then(res => console.log(res))
+                    .catch(error => console.log(error)),
+            ),
+        );
+
+    return combineEpics(getUserDataEpic, upgradeToCoachEpic);
 }
