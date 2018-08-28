@@ -1,1 +1,1 @@
-export const imageStorage = 'http://mkproject.stronazen.pl/';
+export const imageStorage = 'http://codepride.nazwa.pl/dailyadvisor_temp/';

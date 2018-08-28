@@ -27,19 +27,18 @@ if (process.env.NODE_ENV === 'development') {
 const persistConfig = {
     key: 'root',
     storage,
+    whitelist: ['auth'],
 };
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const composedEnhancers = compose(
     applyMiddleware(...middleware),
     ...enhancers,
 );
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 const store = createStore(persistedReducer, initialState, composedEnhancers);
+export const persistor = persistStore(store);
 
 epicMiddleware.run(rootEpic);
-
-export const persistor = persistStore(store);
 
 export default store;
