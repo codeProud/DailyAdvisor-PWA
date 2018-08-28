@@ -7,7 +7,7 @@ import { authApi } from '../api';
 export function authEpicFactory() {
     const registerUserEpic = action$ =>
         action$.pipe(
-            ofType(actions.REGISTER_USER),
+            ofType(actions.AUTH_REGISTER_USER),
             switchMap(action =>
                 authApi.registerUser(action.payload).catch(actions.registerUserRejected),
             ),
@@ -21,7 +21,7 @@ export function authEpicFactory() {
 
     const registerUserConfirm = action$ =>
         action$.pipe(
-            ofType(actions.REGISTER_USER_CONFIRM),
+            ofType(actions.AUTH_REGISTER_USER_CONFIRM),
             switchMap(action =>
                 authApi
                     .registerUserConfirm(action.payload)
@@ -32,13 +32,13 @@ export function authEpicFactory() {
 
     const loginUserEpic = actions$ =>
         actions$.pipe(
-            ofType(actions.LOGIN_USER),
+            ofType(actions.AUTH_LOGIN_USER),
             map(action => actions.getCsrf(action.payload)),
         );
 
     const csrfEpic = actions$ =>
         actions$.pipe(
-            ofType(actions.GET_CSRF),
+            ofType(actions.AUTH_GET_CSRF),
             switchMap(action =>
                 authApi
                     .getCsrf(action.payload)
@@ -49,7 +49,7 @@ export function authEpicFactory() {
 
     const csrfFullfilledEpic = actions$ =>
         actions$.pipe(
-            ofType(actions.GET_CSRF_FULFILLED),
+            ofType(actions.AUTH_GET_CSRF_FULFILLED),
             switchMap(action =>
                 authApi
                     .loginUser(action.payload)
@@ -60,7 +60,7 @@ export function authEpicFactory() {
 
     const logoutUserEpic = action$ =>
         action$.pipe(
-            ofType(actions.LOGOUT_USER),
+            ofType(actions.AUTH_LOGOUT_USER),
             switchMap(action =>
                 authApi
                     .logoutUser()
