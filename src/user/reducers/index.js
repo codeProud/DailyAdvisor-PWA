@@ -22,6 +22,14 @@ export function user(state = initialState, action) {
                 ...state,
                 mode,
             };
+        case actions.USER_UPGRADE_TO_COACH_FULFILLED:
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    userType: 'coach',
+                },
+            };
         default:
             return state;
     }
