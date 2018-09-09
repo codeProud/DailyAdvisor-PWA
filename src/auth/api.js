@@ -9,9 +9,9 @@ const getCsrf = () => http.get('/csrf');
 
 export const authApi = {
     getCsrf,
-    registerUser,
+    getUserProfile,
     loginUser,
     logoutUser,
-    getUserProfile,
+    registerUser,
     registerUserConfirm,
 };

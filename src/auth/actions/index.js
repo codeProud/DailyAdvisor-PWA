@@ -1,73 +1,73 @@
 export const REGISTER_USER = 'REGISTER_USER';
 export const registerUser = payload => ({
-    type: REGISTER_USER,
     payload,
+    type: REGISTER_USER,
 });
 
 export const REGISTER_USER_FULFILLED = 'REGISTER_USER_FULFILLED';
 export const registerUserFulfilled = payload => ({
-    type: REGISTER_USER_FULFILLED,
     payload,
+    type: REGISTER_USER_FULFILLED,
 });
 
 export const REGISTER_USER_REJECTED = 'REGISTER_USER_REJECTED';
 export const registerUserRejected = payload => ({
-    type: REGISTER_USER_REJECTED,
     payload,
+    type: REGISTER_USER_REJECTED,
 });
 
 export const REGISTER_USER_CONFIRM = 'REGISTER_USER_CONFIRM';
 export const registerUserConfirm = payload => ({
-    type: REGISTER_USER_CONFIRM,
     payload,
+    type: REGISTER_USER_CONFIRM,
 });
 
 export const REGISTER_USER_CONFIRM_FULFILLED = 'REGISTER_USER_CONFIRM_FULFILLED';
 export const registerUserConfirmFulfilled = payload => ({
-    type: REGISTER_USER_CONFIRM_FULFILLED,
     payload,
+    type: REGISTER_USER_CONFIRM_FULFILLED,
 });
 
 export const REGISTER_USER_CONFIRM_REJECTED = 'REGISTER_USER_CONFIRM_REJECTED';
 export const registerUserConfirmRejected = payload => ({
-    type: REGISTER_USER_CONFIRM_REJECTED,
     payload,
+    type: REGISTER_USER_CONFIRM_REJECTED,
 });
 
 export const LOGIN_USER = 'LOGIN_USER';
 export const loginUser = payload => ({
-    type: LOGIN_USER,
     payload,
+    type: LOGIN_USER,
 });
 
 export const LOGIN_USER_FULFILLED = 'LOGIN_USER_FULFILLED';
 export const loginUserFulfilled = payload => ({
-    type: LOGIN_USER_FULFILLED,
     payload,
+    type: LOGIN_USER_FULFILLED,
 });
 
 export const LOGIN_USER_REJECTED = 'LOGIN_USER_REJECTED';
 export const loginUserRejected = payload => ({
-    type: LOGIN_USER_REJECTED,
     payload,
+    type: LOGIN_USER_REJECTED,
 });
 
 export const GET_CSRF = 'GET_CSRF';
 export const getCsrf = payload => ({
-    type: GET_CSRF,
     payload,
+    type: GET_CSRF,
 });
 
 export const GET_CSRF_FULFILLED = 'GET_CSRF_FULFILLED';
 export const getCsrfFulfilled = payload => ({
-    type: GET_CSRF_FULFILLED,
     payload,
+    type: GET_CSRF_FULFILLED,
 });
 
 export const GET_CSRF_REJECTED = 'GET_CSRF_REJECTED';
 export const getCsrfRejected = payload => ({
-    type: GET_CSRF_REJECTED,
     payload,
+    type: GET_CSRF_REJECTED,
 });
 
 export const LOGOUT_USER = 'LOGOUT_USER';
