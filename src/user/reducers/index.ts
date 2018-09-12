@@ -13,7 +13,7 @@ export function user(state = initialState, action) {
                 ...state,
                 data: action.payload.data,
             };
-        case authActions.LOGOUT_USER_FULFILLED:
+        case authActions.AUTH_LOGOUT_USER_FULFILLED:
             return initialState;
         case actions.USER_CHANGE_USER_MODE:
             const mode = state.mode === 'client' ? 'coach' : 'client';
@@ -21,6 +21,14 @@ export function user(state = initialState, action) {
             return {
                 ...state,
                 mode,
+            };
+        case actions.USER_UPGRADE_TO_COACH_FULFILLED:
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    userType: 'coach',
+                },
             };
         default:
             return state;

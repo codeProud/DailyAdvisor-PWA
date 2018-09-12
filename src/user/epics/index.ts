@@ -27,8 +27,8 @@ export function userDataEpicFactory() {
             switchMap(action =>
                 userApi
                     .upgradeToCoach()
-                    .then(res => console.log(res))
-                    .catch(error => console.log(error)),
+                    .then(actions.userUpgradeToCoachFulfilled)
+                    .catch(actions.userUpgradeToCoachRejected),
             ),
         );
 

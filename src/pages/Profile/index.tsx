@@ -5,6 +5,7 @@ import Image from 'components/Image';
 import Tile from 'components/Tile';
 
 import { user } from '../../user/selectors';
+import { userUpgradeToCoach } from '../../user/actions';
 
 import { imageStorage } from 'constants/urls';
 
@@ -25,9 +26,10 @@ const Profile = props => {
                     />
                 )}
             </S.UserData>
-
             {props.user && props.user.userType === 'client' ? (
-                <Tile width="344px" height="150px" backgroundImage={boxCoach} />
+                <div onClick={props.userUpgradeToCoach}>
+                    <Tile width="344px" height="150px" backgroundImage={boxCoach} />
+                </div>
             ) : null}
         </S.Container>
     );
@@ -39,7 +41,9 @@ function mapStateToProps(state) {
     };
 }
 
+const mapDispatchToProps = { userUpgradeToCoach };
+
 export default connect(
     mapStateToProps,
-    null,
+    mapDispatchToProps,
 )(Profile);
