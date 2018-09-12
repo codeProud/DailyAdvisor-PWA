@@ -5,7 +5,7 @@ import { bottomNavItems } from 'constants/bottomNavItems';
 
 import IconButton from 'components/IconButton';
 
-import * as S from './styled.js';
+import * as S from './styled';
 
 const BottomNavigation = () => {
     return (

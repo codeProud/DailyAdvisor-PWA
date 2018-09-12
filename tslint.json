@@ -4,6 +4,7 @@
         "exclude": ["config/*"]
     },
     "rules": {
+        "jsx-no-lambda": false,
         "import-blacklist": [true, "rxjs"],
         "member-access": [true, "check-accessor"],
         "no-internal-module": true,
@@ -63,7 +64,7 @@
         "linebreak-style": [true, "LF"],
         "max-file-line-count": [true, 1250],
         "max-line-length": false,
-        "no-default-export": true,
+        "no-default-export": false,
         "no-mergeable-namespace": true,
         "no-require-imports": true,
         "no-trailing-whitespace": true,

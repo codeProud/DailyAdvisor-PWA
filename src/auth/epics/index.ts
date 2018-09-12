@@ -1,5 +1,5 @@
 import { combineEpics, ofType } from 'redux-observable';
-import { switchMap, map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 
 import * as actions from '../actions';
 import { authApi } from '../api';
@@ -41,7 +41,7 @@ export function authEpicFactory() {
             ofType(actions.GET_CSRF),
             switchMap(action =>
                 authApi
-                    .getCsrf(action.payload)
+                    .getCsrf()
                     .then(() => actions.getCsrfFulfilled(action.payload))
                     .catch(actions.getCsrfRejected),
             ),

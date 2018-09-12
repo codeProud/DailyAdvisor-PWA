@@ -1,9 +1,9 @@
 const settings = {
-    coach: {
-        isTrainerTitleVisible: true,
-    },
     client: {
         isTrainerTitleVisible: false,
+    },
+    coach: {
+        isTrainerTitleVisible: true,
     },
 };
 
