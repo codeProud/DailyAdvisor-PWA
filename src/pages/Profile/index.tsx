@@ -9,7 +9,7 @@ import { user } from '../../user/selectors';
 
 import { imageStorage } from 'constants/urls';
 
-import boxCoach from '../../assets/boxCoach.png';
+import * as boxCoach from 'assets/boxCoach.png';
 
 import * as S from './styled';
 

@@ -17,7 +17,7 @@ import NotFound from './pages/NotFound';
 // import Main from 'pages/Main';
 // import NotFound from 'pages/NotFound';
 
-import { StyledMainApp } from './styles';
+import { GlobalStyle } from './styled';
 
 const target = document.querySelector('#root');
 
@@ -25,13 +25,14 @@ render(
     <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
             <Router history={history}>
-                <StyledMainApp>
+                <React.Fragment>
+                    <GlobalStyle />
                     <Switch>
                         <AuthenticatedRoutes path="/main" component={Main} />
                         <NonAuthenticatedRoutes path="/" />
                         <Route component={NotFound} />
                     </Switch>
-                </StyledMainApp>
+                </React.Fragment>
             </Router>
         </PersistGate>
     </Provider>,

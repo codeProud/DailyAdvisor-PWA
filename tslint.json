@@ -39,7 +39,7 @@
         "no-submodule-imports": false,
         "no-arg": true,
         "no-conditional-assignment": true,
-        "no-console": [true, "log", "debug"],
+        "no-console": [false, "log", "debug"],
         "no-construct": true,
         "no-object-literal-type-assertion": false,
         "no-debugger": true,

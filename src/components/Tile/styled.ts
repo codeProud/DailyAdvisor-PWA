@@ -7,10 +7,9 @@ interface ContainerProps {
 }
 
 export const Container = styled.div`
-    color: red;
     border-radius: 14px;
     background-image: ${(props: ContainerProps) =>
-        props.background ? `url(${props.background}` : 'green'};
+        props.background ? `url(${props.background})` : `green`};
     background-position: center right;
     background-size: cover;
     width: ${(props: ContainerProps) => props.width || '300px'};
