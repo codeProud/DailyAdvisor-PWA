@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -15,11 +14,11 @@ const VerticalContainer = styled.div`
 `;
 
 interface LineProps {
-    inverse?: boolean;
+    invertColor?: boolean;
 }
 
 const FirstLine = styled.div`
-    color: ${(props: LineProps) => (props.inverse ? 'black' : 'white')};
+    color: ${(props: LineProps) => (props.invertColor ? 'black' : 'white')};
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
@@ -27,24 +26,20 @@ const FirstLine = styled.div`
 `;
 
 const SecondLine = styled.div`
-    color: ${(props: LineProps) => (props.inverse ? 'black' : 'white')};
+    color: ${(props: LineProps) => (props.invertColor ? 'black' : 'white')};
     font-size: 24px;
     font-weight: 600;
     text-transform: uppercase;
     text-align: center;
 `;
 
-const TagLine = props => {
-    const { first, second } = props;
-
-    return (
-        <Container>
-            <VerticalContainer>
-                <FirstLine>{first}</FirstLine>
-                <SecondLine>{second}</SecondLine>
-            </VerticalContainer>
-        </Container>
-    );
-};
+const TagLine = ({ first, second, invertColor }) => (
+    <Container>
+        <VerticalContainer>
+            <FirstLine invertColor={invertColor}>{first}</FirstLine>
+            <SecondLine invertColor={invertColor}>{second}</SecondLine>
+        </VerticalContainer>
+    </Container>
+);
 
 export default TagLine;

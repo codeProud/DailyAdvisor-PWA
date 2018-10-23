@@ -12,7 +12,10 @@ import Header from 'components/Header';
 import Calendar from 'pages/Calendar';
 import Dashboard from 'pages/Dashboard';
 import NotFound from 'pages/NotFound';
+import People from 'pages/People';
 import Profile from 'pages/Profile';
+import Add from '../../advertisement/pages/Add';
+import Show from '../../advertisement/pages/Show';
 
 import { user, userMode, userModeSettings } from '../../user/selectors';
 
@@ -31,15 +34,16 @@ class Main extends React.Component<any, any> {
         return (
             <>
                 <Header />
-                {this.props.settings.isTrainerTitleVisible ? 'Trainer' : null}
-                <button onClick={this.props.logoutUser}>Wyloguj</button>
-
                 <Switch>
                     <Route exact={true} path={path} component={Dashboard} />
                     <Route path={`${path}/profile`} component={Profile} />
+                    <Route path={`${path}/people`} component={People} />
                     <Route path={`${path}/calendar`} component={Calendar} />
+                    <Route path={`${path}/advertisement/add`} component={Add} />
+                    <Route path={`${path}/advertisement/show`} component={Show} />
                     <Route component={NotFound} />
                 </Switch>
+
                 {this.props.user.userType === 'coach' ? (
                     <FloatingSwitcher userMode={this.props.userMode} onClick={this.click} />
                 ) : null}
@@ -56,7 +60,7 @@ const mapStateToProps = state => ({
     userMode: userMode(state),
 });
 
-const mapDispatchToProps = { getUserData, logoutUser, userChangeUserMode };
+const mapDispatchToProps = { getUserData, userChangeUserMode };
 
 export default connect(
     mapStateToProps,

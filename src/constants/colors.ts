@@ -4,3 +4,6 @@ export const darkGray = '#484848';
 export const gray = '#707070';
 export const lightGray = '#FAFAFA';
 export const mediumGray = '#A8A8A8';
+
+export const formGrey = '#E2E2E2';
+export const formText = '#646464';

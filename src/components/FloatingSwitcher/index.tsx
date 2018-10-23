@@ -9,9 +9,9 @@ const FloatingSwitcher = ({ onClick, userMode }) => (
     <S.Container>
         <S.Switcher onClick={onClick}>
             {userMode === 'coach' ? (
-                <img src={coach} alt="Coach icon" />
-            ) : (
                 <img src={client} alt="Client icon" />
+            ) : (
+                <img src={coach} alt="Coach icon" />
             )}
         </S.Switcher>
     </S.Container>

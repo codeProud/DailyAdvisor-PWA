@@ -7,7 +7,7 @@ import * as S from './styled';
 const Tile = props => {
     return (
         <S.Container width={props.width} height={props.height} background={props.backgroundImage}>
-            <TagLine first="became" second="coach" inverse="true" />
+            <TagLine first="became" second="coach" invertColor={false} />
         </S.Container>
     );
 };

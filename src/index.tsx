@@ -16,7 +16,6 @@ import NotFound from './pages/NotFound';
 
 // import Main from 'pages/Main';
 // import NotFound from 'pages/NotFound';
-
 import { GlobalStyle } from './styled';
 
 const target = document.querySelector('#root');

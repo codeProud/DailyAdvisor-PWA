@@ -2,6 +2,7 @@ import conversation from '../assets/icons/navigation/conversation.svg';
 import dashboard from '../assets/icons/navigation/dashboard.svg';
 import events from '../assets/icons/navigation/events.svg';
 import meal_plans from '../assets/icons/navigation/meal_plans.svg';
+import people from '../assets/icons/navigation/people.svg';
 import shop_list from '../assets/icons/navigation/shop_list.svg';
 import training_plans from '../assets/icons/navigation/training_plans.svg';
 
@@ -17,13 +18,22 @@ export const bottomNavItems = [
     },
     {
         id: 1,
-        name: 'conversation',
-        url: '/main/conversation',
-        icon: conversation,
+        name: 'people',
+        url: '/main/people',
+        icon: people,
         payload: {
-            alt: 'Conversation',
+            alt: 'People',
         },
     },
+    // {
+    //     id: 1,
+    //     name: 'conversation',
+    //     url: '/main/conversation',
+    //     icon: conversation,
+    //     payload: {
+    //         alt: 'Conversation',
+    //     },
+    // },
     {
         id: 2,
         name: 'events',

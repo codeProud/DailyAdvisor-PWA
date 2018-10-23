@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+import { advertisement } from './advertisement/reducers';
 import { auth } from './auth/reducers';
 import { user } from './user/reducers/';
 
@@ -9,4 +10,5 @@ export const rootReducer = combineReducers({
     auth,
     user,
     calendar,
+    advertisement,
 });

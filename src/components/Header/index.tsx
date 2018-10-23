@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { withRouter } from 'react-router';
@@ -9,6 +10,8 @@ import calendar from '../../assets/icons/calendar.svg';
 
 import IconButton from 'components/IconButton';
 import Image from 'components/Image';
+
+import { userModeSettings } from '../../user/selectors';
 
 import * as S from './styled';
 
@@ -28,9 +31,13 @@ const Header = props => {
                     />
                 </NavLink>
             ) : (
-                <IconButton src={arrowLeft} alt="Go to calendar" height="50px" onClick={goBack} />
+                <IconButton src={arrowLeft} alt="Go to calendar" height="30px" onClick={goBack} />
             )}
-            <S.MainHeading>daily advisor</S.MainHeading>
+            <S.MainHeading>
+                daily advisor
+                <br />
+                {props.settings.isTrainerTitleVisible ? 'trainer' : 'client'}
+            </S.MainHeading>
             <NavLink to={'/main/calendar'}>
                 <IconButton src={calendar} alt="Go to calendar" height="50px" width="50px" />
             </NavLink>
@@ -38,4 +45,13 @@ const Header = props => {
     );
 };
 
-export default withRouter(Header);
+const mapStateToProps = state => ({
+    settings: userModeSettings(state),
+});
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        null,
+    )(Header),
+);
